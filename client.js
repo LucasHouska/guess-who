@@ -15,7 +15,10 @@ console.log(randomNumber(0, 6));
 }
 
 function comparePerson() {
-    if(selectedPerson === $(this).attr('id')) {
+    let dataOfPerson = $(this).data('name');
+    console.log($(this).data('name'));
+    console.log(selectedPerson);
+    if(selectedPerson == dataOfPerson) {
         alert(`You got it! That's ${selectedPerson}`);
     } else {
         alert(`Sorry, that's not ${selectedPerson}`);
@@ -25,7 +28,7 @@ function comparePerson() {
 function lookForCutie(){
     for(let cutie of people) {
         $('body').append(`
-        <div class="pics" id="${cutie.name}"><img src="https://github.com/${cutie.githubUsername}.png?size=250" alt="Profile image of ${cutie.name}">
+        <div class="pics" data-name="${cutie.name}"><img src="https://github.com/${cutie.githubUsername}.png?size=250" alt="Profile image of ${cutie.name}">
         </div
         `)
 }
